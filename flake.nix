@@ -7,6 +7,13 @@
     self,
     nixpkgs,
   }: {
+
+	{
+      nixpkgs.overlays = overlays;
+      # hardware.enableAllFirmware = true;
+      hardware.enableRedistributableFirmware = true;
+    }
+  		
     defaultPackage.x86_64-linux =
       # Notice the reference to nixpkgs here.
       with import nixpkgs {system = "x86_64-linux";};
